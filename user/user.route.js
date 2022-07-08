@@ -7,7 +7,7 @@ userRoute.get('/', list);
 userRoute.get('/:userId', details);
 
 userRoute.post('/', create);
-userRoute.put('/:userId', update);
+userRoute.patch('/:userId', update);
 userRoute.delete('/:userId', deleteUserRecord);
 
 module.exports = userRoute;

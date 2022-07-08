@@ -17,9 +17,16 @@ const create = async (req, res) => {
   res.json(user);
 };
 
-const update = async (req, res) => {};
+const update = async (req, res) => {
+  const { userId } = req.params;
+  const userBody = req.body;
+  const updatedUser = await updateUser(userBody, userId);
+  res.json(updatedUser);
+};
 
-const deleteUserRecord = async (req, res) => {};
+const deleteUserRecord = async (req, res) => {
+  const { userId } = req.params;
+};
 
 module.exports = {
   list,

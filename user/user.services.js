@@ -1,22 +1,25 @@
-const Users = require('./user.modal');
+const userModel = require('./user.modal');
 
 const listUsers = async () => {
-  const users = await Users.find({});
+  const users = await userModel.find({});
   return users;
 };
 
 const userDetails = async (userId) => {
-  const users = await Users.findOne({ _id: userId });
+  const users = await userModel.findOne({ _id: userId });
   return users;
 };
 
 const createUser = async (userBody) => {
-  const user = new Users(userBody);
+  const user = new userModel(userBody);
   const userResponse = await user.save();
   return userResponse;
 };
 
-const updateUser = async () => {};
+const updateUser = async (userBody, userId) => {
+  const userResponse = await userModel.updateOne({ _id: userId }, userBody);
+  return userResponse;
+};
 
 const deleteUser = async () => {};
 
