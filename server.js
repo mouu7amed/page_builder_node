@@ -8,12 +8,12 @@ const userRoute = require('./user/user.route');
 //Initialize App
 const app = express();
 app.use(express.json());
+
 const corsOptions = {
   origin: function (origin, callback) {
     callback(null, true);
   },
 };
-
 corsOptions.credentials = true;
 app.use(cors(corsOptions));
 
