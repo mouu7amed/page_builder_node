@@ -4,6 +4,7 @@ const cors = require('cors');
 const uiRoute = require('./ui/ui.route');
 const pageRoute = require('./page/page.route');
 const userRoute = require('./user/user.route');
+const assetRoute = require('./assets/assets.route');
 
 //Initialize App
 const app = express();
@@ -36,6 +37,7 @@ mongoose.connect(
 app.use('/api/', uiRoute);
 app.use('/api/pages', pageRoute);
 app.use('/api/users', userRoute);
+app.use('/api/assets', assetRoute);
 
 const PORT = 8080;
 app.listen(PORT, () => {
