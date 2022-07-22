@@ -29,9 +29,19 @@ const savePageContent = async (pageId, content) => {
   return pageUpdated;
 };
 
+const savePageView = async (pageId, view) => {
+  const viewUpdated = await pageModel.findOneAndUpdate({ _id: pageId }, { view });
+  return viewUpdated;
+};
+
 const findPageById = async (pageId) => {
   const page = await pageModel.findById(pageId);
   return page;
+};
+
+const pageView = async (pageId) => {
+  const pages = await pageModel.findOne({ _id: pageId });
+  return pages;
 };
 
 module.exports = {
@@ -42,4 +52,6 @@ module.exports = {
   pageDetails,
   savePageContent,
   findPageById,
+  pageView,
+  savePageView,
 };
