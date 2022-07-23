@@ -19,7 +19,9 @@ const Page = new Schema(
       required: true,
     },
     content: Object,
-    view: Object,
+    view: {
+      type: Object,
+    },
   },
   {
     timestamps: true,
